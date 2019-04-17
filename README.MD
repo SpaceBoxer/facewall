@@ -1,6 +1,6 @@
 # facewall
 
-An open-source version of Spacebox's Facewall.
+An open-source version of Spacebox's Facewall by Vue. Adapted from [facewall](https://github.com/HubSpot/facewall)
 
 ## Configuring
 
@@ -24,18 +24,8 @@ An open-source version of Spacebox's Facewall.
 ## Running
 
 ``` bash
-npm install -g cnpm --registry=https://registry.npm.taobao.org
-
-cnpm i
-
+yarn install
 npm start
-
-# auto repair lint error
 npm run lintfix
-
-# build for production with minification
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
