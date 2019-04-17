@@ -1,0 +1,248 @@
+@import "../../style/base";
+@import "./animation";
+
+.fly-in {
+  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  animation: fly-in 0.7s;
+}
+
+.fade-in {
+  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  animation: fade-in 0.7s;
+}
+
+.flip-in-y {
+  animation-name: flip-in-y;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  backface-visibility: visible !important;
+}
+
+.employee-feature-flip-in-y {
+  animation-fill-mode: both;
+  backface-visibility: visible !important;
+  animation: employee-feature, flip-in-y;
+  animation-duration: 1s, 2s;
+}
+#facewall-loader {
+  z-index: 3000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+  margin-left: -60px;
+  background: rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.06);
+  border-radius: 999px;
+  content: "\30AF";
+  display: block;
+  font-size: 82px;
+  line-height: 127px;
+  color: rgba(255,255,255,0.4);
+  text-shadow: 0 -1px rgba(0,0,0,0.4);
+  font-weight: bold;
+  text-align: center;
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: loader 10s;
+  -webkit-animation-iteration-count: infinite;
+}
+.container {
+  position: relative;
+  height: 100vh;
+  -webkit-perspective: 700;
+  transform-style: preserve-3d;
+  .employee-grid-view {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &:after {
+      clear: both;
+    }
+    .employee-row {
+      width: 100%;
+      float: left;
+      .employee {
+        transition: transform 1s ease-in-out;
+        display: inline-flex;
+        border-top: 1px solid #294150;
+        border-right: 1px solid #294150;
+        &:first-child {
+          border-left: 1px solid #294150;
+        }
+        flex-shrink: 0;
+        position: relative;
+        color: #fff;
+        background: rgba(41,65,80,0.7);
+        .photo {
+          width: 100%;
+          height: 100%;
+          transition: -webkit-filter 0.4s, opacity 0.4s;
+          filter: alpha(opacity=50);
+          opacity: 0.5;
+        }
+        .name {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: none;
+          overflow: hidden;
+          font-size: .6rem;
+          word-break: break-word;
+          text-align: center;
+          line-height: 1.1;
+        }
+        &:hover {
+          .name {
+            display: flex;
+          }
+        }
+      }
+      .employee-featured {
+        box-shadow: 0 0 0 7px #21d385, 0 0 47px 7px #21d385, 0 0 72px 70px rgba(33,211,133,0.2);
+        border-radius: 20px;
+        z-index: 200;
+        border-color: transparent;
+        .photo {
+          border-radius: 20px;
+        }
+      }
+    }
+    .employee-row-bottom {
+      .employee {
+        border-bottom: 1px solid #294150;
+      }
+    }
+  }
+  .modal-view {
+    z-index: 1000;
+    width: 500px;
+    height: 700px;
+    transition: transform 1s ease-in-out;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -350px;
+    border-radius: 20px;
+    background: rgba(41, 65, 80, 0.7);
+    white-space: pre;
+    font-weight: 100;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    text-shadow: 0 0 70px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 0 13px rgba(33, 211, 133, 1), 0 0 47px 7px rgba(33, 211, 133, 1), 0 0 72px 70px rgba(33, 211, 133, 0.2);
+    .big-avatar {
+      width: 100%;
+      height: 75%;
+      filter: grayscale(0);
+      opacity: 1;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .modal-role-view {
+      width: 100%;
+      height: 25%;
+      padding-bottom: 10%;
+      padding-top: 10%;
+      border-top: 2px solid rgba(0, 255, 143, 0.41);
+      text-shadow: 0 0 84px rgba(0, 0, 0, 0.9);
+      background-color: rgba(51, 68, 80, 0.7);
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+      font-weight: 100;
+      color: #fff;
+      .name {
+        font-size: 75px;
+        line-height: 1.2;
+      }
+      .role {
+        font-size: 40px;
+        opacity: 0.7;
+      }
+    }
+  }
+  .search-view {
+    display: none;
+    position: fixed;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 70px rgba(0, 0, 0, 0.8);
+    top: 50px;
+    left: 50px;
+    box-shadow: 0 0 0 7px #21d385, 0 0 47px 7px #21d385, 0 0 72px 70px rgba(33, 211, 133, 0.2);
+    background: rgba(41, 65, 80, 0.7);
+    border-radius: 20px;
+    padding: 36px 27px 26px 110px;
+    font-size: 60px;
+    font-weight: 100;
+    white-space: pre;
+    line-height: 37px;
+    min-height: 100px;
+    &:before {
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+      height: 80px;
+      width: 80px;
+      background: url("http://cdn1.hubspot.com.s3.amazonaws.com/static/sprocket_white_80.png") no-repeat;
+    }
+  }
+  .search-view-opened {
+    display: block;
+  }
+}
+
+@media (max-height: 830px) {
+  .container {
+    .employee-grid-view {
+      .employee-row {
+        .employee {
+          .photo {
+          }
+          .name {
+            font-size: .6rem;
+          }
+        }
+      }
+    }
+    //.modal-view {
+    //  width: calc(calc(100vh - 40px) * 0.75);
+    //  height: calc(100vh - 40px);
+    //  margin-left: calc(calc(100vh - 40px) * -0.375);
+    //  margin-top: calc(calc(100vh - 40px) * -0.5);
+    //  .big-avatar {
+    //    width: 100%;
+    //    height: 70%;
+    //    img {
+    //      width: 100%;
+    //      height: 100%;
+    //    }
+    //  }
+    //  .modal-role-view {
+    //    .name {
+    //      font-size: 85px;
+    //      line-height: 1.2;
+    //    }
+    //    .role {
+    //      font-size: 40px;
+    //      opacity: 0.7;
+    //    }
+    //  }
+    //}
+    //.search-view-opened {
+    //  display: none;
+    //}
+  }
+}
